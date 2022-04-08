@@ -4,7 +4,7 @@ node('unittest'){
         checkout scm
     }
 
-    def image = docker.build("unittests")
+    def image = docker.build("unittests:${env.BRANCH_NAME}")
 
     parallel unittest: {
         stage('Run unittests'){
